@@ -54,13 +54,14 @@ TemporalIndicators <- function( Dates, DATEnum = TRUE, DOW = TRUE, YEAR = TRUE, 
     datesyears <- do.call( seq, as.list( lubridate::year( range( Dates ) ) ) )
     holidaydates <- c( `Jan 1` = "01-01", `March 15` = "03-15", `May 1` = "05-01", `Aug 20` = "08-20", `Oct 23` = "10-23",
                        `Nov 1` = "11-01", `Dec 25` = "12-25", `Dec 26` = "12-26" )
-    holidays <- data.frame( name = rep( c( names( holidaydates ), "Good Friday", "Easter", "Pentecost" ),
-                                        each = length( datesyears ) ),
+    holidays <- data.frame( name = rep( c( names( holidaydates ), "Easter", "Pentecost" ), each = length( datesyears ) ),
                             date = c( as.Date( apply( expand.grid( datesyears, holidaydates ), 1, paste0,
-                                                      collapse = "-" ) ),
-                                      as.Date( timeDate::GoodFriday( unique( pmax( 2017, datesyears ) ) ) ),
-                                      as.Date( timeDate::EasterMonday( datesyears ) ),
+                                                      collapse = "-" ) ), as.Date( timeDate::EasterMonday( datesyears ) ),
                                       as.Date( timeDate::PentecostMonday( datesyears ) ) ), stringsAsFactors = FALSE )
+    if( any( datesyears>=2017 ) )
+      holidays <- rbind( holidays, data.frame( name = "Good Friday",
+                                               date = as.Date( timeDate::GoodFriday( unique( pmax( 2017, datesyears ) ) ) ) ) )
+
     if( NWD=="Individual" ) {
       holidays <- rbind( holidays,
                          data.frame( name = paste0( "pre-", holidays$name[ holidays$name!="Dec 26" ] ),
