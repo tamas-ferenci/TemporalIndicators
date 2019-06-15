@@ -53,6 +53,7 @@ TemporalIndicators <- function( Dates, DATEnum = TRUE, DOW = TRUE, week_start_in
     if( !NWD%in%c( "Individual", "Global", "None" ) )
       stop( "NWD can only take the value of 'Individual', 'Global' or 'None'!" )
     datesyears <- do.call( seq, as.list( lubridate::year( range( Dates ) ) ) )
+    datesyears <- c( min( datesyears )-1, datesyears, max( datesyears )+1 )
     holidaydates <- c( `Jan 1` = "01-01", `March 15` = "03-15", `May 1` = "05-01", `Aug 20` = "08-20", `Oct 23` = "10-23",
                        `Nov 1` = "11-01", `Dec 25` = "12-25", `Dec 26` = "12-26" )
     holidays <- data.frame( name = rep( c( names( holidaydates ), "Easter", "Pentecost" ), each = length( datesyears ) ),
