@@ -11,6 +11,7 @@ yearDays <- function( time ) {
 #' @param Dates The vector of dates from which the indicators should be calculated
 #' @param DATEnum Numeric dates needed?
 #' @param DOW Day-of-week indicator needed?
+#' @param week_start_in Day on which week starts (1: Monday, 7: Sunday)
 #' @param YEAR Year indicator needed?
 #' @param DOY Day-of-year indicator needed?
 #' @param WEEK Week indicator needed?
@@ -31,8 +32,8 @@ yearDays <- function( time ) {
 #' @export
 #'
 #' @examples TemporalIndicators( seq( as.Date( "2018-01-01" ), as.Date( "2019-03-31" ), by = "days" ) )
-TemporalIndicators <- function( Dates, DATEnum = TRUE, DOW = TRUE, YEAR = TRUE, DOY = TRUE, WEEK = TRUE, NWD = "Individual",
-                                SWAP = TemporalIndicators::SwappedWorkingDays, Congresses = NULL,
+TemporalIndicators <- function( Dates, DATEnum = TRUE, DOW = TRUE, week_start_in = 1, YEAR = TRUE, DOY = TRUE, WEEK = TRUE,
+                                NWD = "Individual", SWAP = TemporalIndicators::SwappedWorkingDays, Congresses = NULL,
                                 CongressDatesIn = TemporalIndicators::CongressDates,
                                 CongPrePost = TRUE, SDAY = TRUE, MONTH = TRUE, SEASON = TRUE ) {
   if( !lubridate::is.Date( Dates ) )
@@ -41,7 +42,7 @@ TemporalIndicators <- function( Dates, DATEnum = TRUE, DOW = TRUE, YEAR = TRUE, 
   if( DATEnum )
     res$DATEnum <- as.numeric( Dates )
   if( DOW )
-    res$DOW <- lubridate::wday( Dates )
+    res$DOW <- lubridate::wday( Dates, week_start = week_start_in )
   if( YEAR )
     res$YEAR <- lubridate::year( Dates )
   if( DOY )

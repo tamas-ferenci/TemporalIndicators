@@ -4,9 +4,10 @@
 \alias{TemporalIndicators}
 \title{Create temporal indicators}
 \usage{
-TemporalIndicators(Dates, DATEnum = TRUE, DOW = TRUE, YEAR = TRUE,
-  DOY = TRUE, WEEK = TRUE, NWD = "Individual",
-  SWAP = TemporalIndicators::SwappedWorkingDays, Congresses = NULL,
+TemporalIndicators(Dates, DATEnum = TRUE, DOW = TRUE,
+  week_start_in = 1, YEAR = TRUE, DOY = TRUE, WEEK = TRUE,
+  NWD = "Individual", SWAP = TemporalIndicators::SwappedWorkingDays,
+  Congresses = NULL,
   CongressDatesIn = TemporalIndicators::CongressDates,
   CongPrePost = TRUE, SDAY = TRUE, MONTH = TRUE, SEASON = TRUE)
 }
@@ -16,6 +17,8 @@ TemporalIndicators(Dates, DATEnum = TRUE, DOW = TRUE, YEAR = TRUE,
 \item{DATEnum}{Numeric dates needed?}
 
 \item{DOW}{Day-of-week indicator needed?}
+
+\item{week_start_in}{Day on which week starts (1: Monday, 7: Sunday)}
 
 \item{YEAR}{Year indicator needed?}
 
