@@ -19,6 +19,6 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(TemporalIndicators)
-## basic example code
+TemporalIndicators( seq( as.Date( "2018-01-01" ), as.Date( "2019-03-31" ), by = "days" ) )
 ```
 
