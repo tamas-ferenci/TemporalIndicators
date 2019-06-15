@@ -1,0 +1,21 @@
+Package: TemporalIndicators
+Title: Determining different temporal indicators for dates
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Tamas",
+           family = "Ferenci",
+           role = c("aut", "cre"),
+           email = "ferenci.tamas@nik.uni-obuda.hu",
+           comment = c(ORCID = "0000-0001-6791-3080"))
+Description: Calculate various indicators from dates, such as which day of the week and year it is, is it a national holiday,
+    is there a national medical congress on that day etc. Contains the dates of cardiological, surgical and cataracta congresses,
+    and swapped working and non-working days for Hungary from 2004 to 2019, and Hungarian national holidays.
+Depends: R (>= 2.10)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    lubridate,
+    dplyr,
+    timeDate
+RoxygenNote: 6.1.1
