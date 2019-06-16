@@ -112,7 +112,7 @@ TemporalIndicators <- function( Dates, DATEnum = TRUE, DOW = TRUE, week_start_in
   if( MONTH )
     res$MONTH <- lubridate::month( Dates )
   if( SEASON )
-    res$SEASON <- lubridate::quarter( Dates )
+    res$SEASON <- cut( lubridate::month( Dates )%%12, breaks = c( -Inf, 2, 5, 8, 11 ), labels = FALSE )
 
   return( res[ , -1 ] )
 }
