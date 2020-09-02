@@ -4,11 +4,13 @@
 \name{SwappedWorkingDays}
 \alias{SwappedWorkingDays}
 \title{Swapped working and non-working days in Hungary, 2004-2019}
-\format{A data frame with 90 rows and 2 variables:
+\format{
+A data frame with 90 rows and 2 variables:
 \describe{
   \item{date}{Date of swapped}
   \item{name}{Name of that date, e.g. 'Non-working day' and 'Working day'}
-}}
+}
+}
 \usage{
 SwappedWorkingDays
 }

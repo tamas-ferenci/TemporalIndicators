@@ -4,12 +4,14 @@
 \name{CongressDates}
 \alias{CongressDates}
 \title{Congress dates in Hungary, 2004-2019}
-\format{A data frame with 40 rows and 3 variables:
+\format{
+A data frame with 40 rows and 3 variables:
 \describe{
   \item{CongressName}{Name of the congress}
   \item{StartDate}{Starting date of the congress in a given year}
   \item{EndDate}{End date of the congress in a given year}
-}}
+}
+}
 \usage{
 CongressDates
 }

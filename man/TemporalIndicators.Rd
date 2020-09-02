@@ -4,12 +4,23 @@
 \alias{TemporalIndicators}
 \title{Create temporal indicators}
 \usage{
-TemporalIndicators(Dates, DATEnum = TRUE, DOW = TRUE,
-  week_start_in = 1, YEAR = TRUE, DOY = TRUE, WEEK = TRUE,
-  NWD = "Individual", SWAP = TemporalIndicators::SwappedWorkingDays,
+TemporalIndicators(
+  Dates,
+  DATEnum = TRUE,
+  DOW = TRUE,
+  week_start_in = 1,
+  YEAR = TRUE,
+  DOY = TRUE,
+  WEEK = TRUE,
+  NWD = "Individual",
+  SWAP = TemporalIndicators::SwappedWorkingDays,
   Congresses = NULL,
   CongressDatesIn = TemporalIndicators::CongressDates,
-  CongPrePost = TRUE, SDAY = TRUE, MONTH = TRUE, SEASON = TRUE)
+  CongPrePost = TRUE,
+  SDAY = TRUE,
+  MONTH = TRUE,
+  SEASON = TRUE
+)
 }
 \arguments{
 \item{Dates}{The vector of dates from which the indicators should be calculated}
